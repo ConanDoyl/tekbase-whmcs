@@ -1,0 +1,35 @@
+{
+    "schema": "1.0",
+    "type": "whmcs-servers",
+    "name": "tekbasewhmcs",
+    "license": "proprietary",
+    "category": "provisioning",
+    "description": {
+        "name": "Official Tekbase Reseller Module",
+        "tagline": "The official Tekbase Reseller Module",
+        "long": "Create or Manage licenses for your clients without creating them manually. Create a product with full configurationsoptions or create just a product with a 'Resources' field to manage packages. Installation & Setup help inside the Documentation",
+        "features": [
+            "Add new Licenses",
+            "Suspend a License",
+            "Unsuspend a License",
+            "Terminate a License",
+            "Upgrade Licenses"
+        ]
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "support": {
+        "homepage": "https:\/\/deinserverhost.de\/", 
+        "learn_more": "https:\/\/teklab.de\/tekbase-webinterface\/", 
+        "email": "doyl@dsh.icu", 
+        "support_url": "https:\/\/deinserverhost.de\/",
+        "docs_url": "https:\/\/deinserverhost.de\/wiki\/"
+    },
+    "authors": [
+        {
+            "name": "DeinServerHost - Thomas Brinkmann",
+            "homepage": "https:\/\/deinserverhost.de\/"
+        }
+    ]
+}

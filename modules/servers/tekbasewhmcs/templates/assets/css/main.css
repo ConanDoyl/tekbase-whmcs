@@ -1,0 +1,266 @@
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+
+  background-color: #384245;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #FFFFFF;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #182225;  
+  color: #FFFFFF;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #182225;
+  color: #FFFFFF;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  animation: fadeEffect 1s;
+  text-align: left;
+}
+
+
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #1a4d80 0%, #2162a3 66%, #326ca7 100%);
+  background: -webkit-linear-gradient(top, #1a4d80 0%, #2162a3 66%, #326ca7 100%);
+  background: linear-gradient(to bottom, #1a4d80 0%, #2162a3 66%, #326ca7 100%);
+  border-bottom: 2px solid #444444;
+}
+
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+code {
+    background-color: #bdbdbd;
+    border-radius: 2px;
+    border: #9c9c9c solid 1px;
+    font-family: courier, monospace;
+    font-size: 14px;
+    padding: 0 3px;
+}
+
+
+
+.elements {
+padding: 10px;
+margin-left: 50px;
+margin-top: 10px;
+padding-left: 0;
+}
+.field {
+font-size: 15px;
+}
+label {
+display: inline-block;
+}
+input {
+border: 1px solid #c3c3c3;
+height: 25px;
+width: 200px;
+text-align: left;
+}
+
+    .row > .elements:nth-child(2) {
+     float:right;   
+    }
+
+.row > .elements:first-child {
+    float: left;
+}
+
+
+.tektxt { 
+  min-height: 35px !important;
+  border: 1px solid #c3c3c3;
+  height: 25px;
+  width: 300px;
+  text-align: left;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 4px 20px;
+  border: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(0,0,0,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-box-shadow: 1px 1px 10px 0 rgba(90,90,90,1) ;
+  box-shadow: 1px 1px 10px 0 rgba(90,90,90,1) ;
+}
+
+
+.btntek {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #182225;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(255,255,255,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #384245;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+}
+
+.btntek:hover {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #182225;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(255,255,255,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #182225;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+}
+
+.alertboxtek {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 70%;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,1);
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgb(216, 216, 216);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #aa1212;
+  -webkit-box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5) ;
+}
+
+.warningboxtek {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 70%;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(90,90,90,1);
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(255,153,0,1);
+  -webkit-box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5) ;
+}
+
+.successboxtek {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 70%;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(90,90,90,1);
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(8,175,0,1);
+  -webkit-box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.3) ;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5) ;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  
+
