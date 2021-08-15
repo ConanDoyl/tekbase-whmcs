@@ -8,7 +8,7 @@ You can create, suspend, unsuspend, terminate and upgrade a license with this mo
 ![Tekbase Module Admin Area](https://img.dsh.gg/DSH-GW02-HGQjTeNmfZ-15-08-2021-12-01PM.png)
 
 ![Tekbase Module Clientarea](https://img.dsh.gg/DSH-GW02-QvG6R6i6M8-15-08-2021-04-26PM.png)
-*Clientarea Templase is just a Example, please create your own Template*
+*Clientarea Template is just a Example, please create your own Template*
 #
 
 ## Setup
