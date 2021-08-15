@@ -1,5 +1,8 @@
 # Tekbase WHMCS Module
 
+[![DeinServerHost.de](https://backup.mirror3.deinserverhost.icu/Partner/white.svg)](https://deinserverhost.de)
+  
+   
 ## Summary
 A Module to create TekBase Licenses directly with your WHMCS Installation. No longer required to managed your Licenses through the Tekbase Admin Area, just setup a product and some configuration options and licenses can created fully automated. 
 
@@ -10,6 +13,8 @@ You can create, suspend, unsuspend, terminate and upgrade a license with this mo
 ![Tekbase Module Clientarea](https://img.dsh.gg/DSH-GW02-QvG6R6i6M8-15-08-2021-04-26PM.png)
 *Clientarea Template is just a Example, please create your own Template*
 #
+
+
 
 ## Setup
 
