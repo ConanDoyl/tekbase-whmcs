@@ -1,7 +1,10 @@
 # Tekbase WHMCS Module
 
-[![DeinServerHost.de](https://backup.mirror3.deinserverhost.icu/Partner/white.svg)](https://deinserverhost.de)
-  
+<div align="center">
+<a href="https://deinserverhost.de"><img src="https://backup.mirror3.deinserverhost.icu/Partner/white.svg" alt="DeinServerHost.de" width="550px" ></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://teklab.de"><img src="https://cdn.teklab.de/themes/clean/images/teklab_small.svg" alt="DeinServerHost.de" width="250px" ></a>
+</div>
    
 ## Summary
 A Module to create TekBase Licenses directly with your WHMCS Installation. No longer required to managed your Licenses through the Tekbase Admin Area, just setup a product and some configuration options and licenses can created fully automated. 
