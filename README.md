@@ -1,9 +1,9 @@
 # Tekbase WHMCS Module
 
 <div align="center">
-<a href="https://deinserverhost.de"><img src="https://backup.mirror3.deinserverhost.icu/Partner/white.svg" alt="DeinServerHost.de" width="550px" ></a>
+<a href="https://deinserverhost.de"><img src="https://backup.mirror3.deinserverhost.icu/Partner/white.svg" alt="DeinServerHost.de" width="450px" ></a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://teklab.de"><img src="https://cdn.teklab.de/themes/clean/images/teklab_small.svg" alt="DeinServerHost.de" width="250px" ></a>
+<a href="https://teklab.de"><img src="https://cdn.teklab.de/themes/clean/images/teklab_small.svg" alt="DeinServerHost.de" width="200px" ></a>
 </div>
    
 ## Summary
