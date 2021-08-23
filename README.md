@@ -1,12 +1,17 @@
 # Tekbase WHMCS Module
 
+
 <div align="center">
 <a href="https://deinserverhost.de"><img src="https://backup.mirror3.deinserverhost.icu/Partner/white.svg" alt="DeinServerHost.de" width="450px" ></a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://teklab.de"><img src="https://cdn.teklab.de/themes/clean/images/teklab_small.svg" alt="DeinServerHost.de" width="200px" ></a>
 </div>
    
+   
 ## Summary
+
+  [![CodeFactor](https://www.codefactor.io/repository/github/conandoyl/tekbase-whmcs/badge)](https://www.codefactor.io/repository/github/conandoyl/tekbase-whmcs)
+  
 With this module you're able to manage your customer licenses. You can add, delete, lock/unlock or upgrade a license. 
 The Module requires at least one product, we prefer to create both types.
 
