@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 1:12:21 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Tuesday, 24th August 2021 5:38:09 pm
+ * Last Modified: Saturday, 28th August 2021 1:21:40 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -32,40 +32,6 @@ class LicenseService {
     public function countLicenses() { 
         return (new ApiManager)->ExecuteApi('GET', [], 'count/');
     }
-
-
-
-    /** Returns a Array with the licenses 
-     * @param bool $onlyActives Returns only licenses with the status ACTIVE
-     * 
-     * @return array 
-     */
-    #public function getAllLicenses($onlyActives = false) { throw new Exception('Not implemented'); }
-    public function getAllLicenses() { throw new Exception('Not implemented'); }
-
-
-
-    /** Returns the License and all details 
-     * @param int $licenseid The id of the license that should be retured
-     * 
-     * @return object
-     */
-    #public function getLicense(int $licenseid) { throw new Exception('Not implemented'); }
-    public function getLicense() { throw new Exception('Not implemented'); }
-
-
-
-
-    /** Returns the license key for this license
-     * @param int $licenseid
-     * @param int $version
-     * 
-     * @return object
-     */
-    #public function getLicenseKey(int $licenseid, int $version = 8) { throw new Exception('Not implemented'); }
-    public function getLicenseKey() { throw new Exception('Not implemented'); }
-
-
 
 
     /** Returns the License Key if it was successful and its id
