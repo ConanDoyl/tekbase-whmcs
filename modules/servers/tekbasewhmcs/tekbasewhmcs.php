@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 11:48:16 am
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:07:53 pm
+ * Last Modified: Saturday, 28th August 2021 12:59:25 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -21,6 +21,7 @@
 use ConanDoyl\TekbaseWhmcs\Models\License;
 use ConanDoyl\TekbaseWhmcs\Manager\DatabaseManager;
 use ConanDoyl\TekbaseWhmcs\Manager\TemplateManager;
+use ConanDoyl\TekbaseWhmcs\Models\HttpRequest;
 use ConanDoyl\TekbaseWhmcs\Services\LicenseService;
 use ConanDoyl\TekbaseWhmcs\Services\ProductService;
 use ConanDoyl\TekbaseWhmcs\Services\ResponseService;
@@ -107,7 +108,7 @@ function tekbasewhmcs_ChangePackage($params){
 
 function tekbasewhmcs_ClientArea($params){
     $TPLManager = new TemplateManager(dirname(__FILE__), "client/home.tpl"); 
-    $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+    $page = (new HttpRequest)->getCurrentPage();
     $CustomFunction = "template_" . $page;
     $modulelink = $params['modulelink'];
 
@@ -128,9 +129,7 @@ function tekbasewhmcs_ClientArea($params){
 
 
 function tekbasewhmcs_saveClientSettings($params){ 
-    if ( isset($_POST['siteurl']) && isset($_POST['sitepath']) ) {
-		return (new ResponseService)->jsonResponse( (new TemplateService)->saveClientSettings($params) );
-	} else { return (new ResponseService)->jsonResponse([ "result" => "failed", "message" => "Something went wrong" ]); }
+    return (new ResponseService)->jsonResponse( (new TemplateService)->saveClientSettings($params) );
 }
 
 

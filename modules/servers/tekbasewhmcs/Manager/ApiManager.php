@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 12:00:08 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:51 pm
+ * Last Modified: Tuesday, 24th August 2021 5:24:39 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -29,12 +29,13 @@ class ApiManager {
     protected $Url;
 
     public function __construct(){
-        $server = Capsule::table('tblservers')->where('type', 'tekbasewhmcs')->where('active', '1')->select('username', 'password', 'secure')->first();
+        $server = (new Capsule)->table('tblservers')->where('type', 'tekbasewhmcs')->where('active', '1')->select('username', 'password', 'secure')->first();
         $this->setUsername($server->username);
         $this->setPassword(decrypt($server->password));
-        if ($server->secure == "on"){
+        $this->setURL('http://api.tekbase.de/v1/reseller/'. $this->getUsername() . "/" ); 
+
+        if ($server->secure == "on")
             $this->setURL('https://api.tekbase.de/v1/reseller/' . $this->getUsername() . "/");
-        } else { $this->setURL('http://api.tekbase.de/v1/reseller/'. $this->getUsername() . "/" ); }
         
     }
 

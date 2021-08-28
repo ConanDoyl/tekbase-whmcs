@@ -6,7 +6,7 @@
  * File Created: Sunday, 15th August 2021 12:51:00 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:13 pm
+ * Last Modified: Tuesday, 24th August 2021 5:59:19 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -20,6 +20,8 @@
  */
 namespace ConanDoyl\TekbaseWhmcs\Services;
 
+use WHMCS\Http\JsonResponse;
+use WHMCS\Terminus;
 
 class ResponseService {
 
@@ -30,9 +32,9 @@ class ResponseService {
      * @return JSON
      */
     function jsonResponse(array $data){
-        $response = new \WHMCS\Http\JsonResponse((array)$data);
+        $response = new JsonResponse((array)$data);
         $response->send();
-        \WHMCS\Terminus::getInstance()->doExit();
+        (new Terminus)->getInstance()->doExit();
     }
 
 

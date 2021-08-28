@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 1:12:21 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:27 pm
+ * Last Modified: Tuesday, 24th August 2021 5:38:09 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -40,7 +40,8 @@ class LicenseService {
      * 
      * @return array 
      */
-    public function getAllLicenses($onlyActives = false) { throw new Exception('Not implemented'); }
+    #public function getAllLicenses($onlyActives = false) { throw new Exception('Not implemented'); }
+    public function getAllLicenses() { throw new Exception('Not implemented'); }
 
 
 
@@ -49,7 +50,8 @@ class LicenseService {
      * 
      * @return object
      */
-    public function getLicense(int $licenseid) { throw new Exception('Not implemented'); }
+    #public function getLicense(int $licenseid) { throw new Exception('Not implemented'); }
+    public function getLicense() { throw new Exception('Not implemented'); }
 
 
 
@@ -60,7 +62,8 @@ class LicenseService {
      * 
      * @return object
      */
-    public function getLicenseKey(int $licenseid, int $version = 8) { throw new Exception('Not implemented'); }
+    #public function getLicenseKey(int $licenseid, int $version = 8) { throw new Exception('Not implemented'); }
+    public function getLicenseKey() { throw new Exception('Not implemented'); }
 
 
 
@@ -153,6 +156,11 @@ class LicenseService {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+
+    public static function Test(){
+        return "sddsd";
     }
     
 }
