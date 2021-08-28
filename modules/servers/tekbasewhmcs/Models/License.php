@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 2:32:01 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:32 pm
+ * Last Modified: Tuesday, 24th August 2021 5:35:43 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -44,9 +44,23 @@ class License {
     /** Load the License with $id or creante a new object
      * @param null $id
      */
-    public function __construct($id = null) {
-        if ($id != null){
-            $__lic = DatabaseManager::GetLicense($id);
+    public function __construct($licenseId = null) {
+        // Set default values 
+        $this->customer     = (new LicenseService)->generateRandomString();
+        $this->key          = "";
+        $this->siteip       = "";
+        $this->siteurl      = "";
+        $this->sitepath     = "";
+        $this->version      = "private";
+        $this->cms          = 0;
+        $this->shop         = 0;
+        $this->gwislots     = 0;
+        $this->rwislots     = 0;
+        $this->swislots     = 0;
+        $this->vwislots     = 0;
+        
+        if ($licenseId != null){
+            $__lic = (new DatabaseManager)->GetLicense($licenseId);
             $this->id           = $__lic->licenseid;
             $this->serviceid    = $__lic->serviceid;
             $this->customer     = $__lic->customerid;
@@ -61,21 +75,9 @@ class License {
             $this->rwislots     = $__lic->rwislots;
             $this->swislots     = $__lic->swislots;
             $this->vwislots     = $__lic->vwislots;
-        } else {
-            // Set default values 
-            $this->customer     = (new LicenseService)->generateRandomString();
-            $this->key          = "";
-            $this->siteip       = "";
-            $this->siteurl      = "";
-            $this->sitepath     = "";
-            $this->version      = "private";
-            $this->cms          = 0;
-            $this->shop         = 0;
-            $this->gwislots     = 0;
-            $this->rwislots     = 0;
-            $this->swislots     = 0;
-            $this->vwislots     = 0;
         }
+            
+        
     }
 
 
@@ -84,7 +86,7 @@ class License {
      * @return boolean
      */
     public function save(){
-        return DatabaseManager::UpdateLicense($this);
+        return (new DatabaseManager)->UpdateLicense($this);
     }
 
 

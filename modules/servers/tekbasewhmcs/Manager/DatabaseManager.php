@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 12:11:27 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:44 pm
+ * Last Modified: Saturday, 28th August 2021 10:26:14 am
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -20,7 +20,9 @@
  */
 namespace ConanDoyl\TekbaseWhmcs\Manager;
 
+use Exception;
 use WHMCS\Database\Capsule;
+use Carbon\Carbon;
 use ConanDoyl\TekbaseWhmcs\Models\License;
 
 
@@ -31,8 +33,8 @@ class DatabaseManager {
 
         // Create a new table.
         try {
-            if (!Capsule::schema()->hasTable('mod_tekbase_licenses'))
-                Capsule::schema()->create(
+            if (!(new Capsule)->schema()->hasTable('mod_tekbase_licenses'))
+                (new Capsule)->schema()->create(
                     'mod_tekbase_licenses',
                     function ($table) {
                         $table->increments('id');
@@ -53,7 +55,7 @@ class DatabaseManager {
                         $table->timestamps();
                     }
                 );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             logModuleCall(
                 'tekbasewhmcs',
                 __FUNCTION__,
@@ -68,7 +70,7 @@ class DatabaseManager {
 
     public static function Destroy() {
         try {
-            Capsule::dropIfExists('mod_tekbase_licenses');
+            (new Capsule)->dropIfExists('mod_tekbase_licenses');
         } catch (\Exception $e) {
             logModuleCall(
                 'tekbasewhmcs',
@@ -82,20 +84,20 @@ class DatabaseManager {
 
 
     public static function GetLicense(int $id) {
-        if (Capsule::table('mod_tekbase_licenses')->where('licenseid', $id)->count() > 0){
-            return Capsule::table('mod_tekbase_licenses')->where('licenseid', $id)->first();
+        if ((new Capsule)->table('mod_tekbase_licenses')->where('licenseid', $id)->count() > 0){
+            return (new Capsule)->table('mod_tekbase_licenses')->where('licenseid', $id)->first();
         } else {
-            return Capsule::table('mod_tekbase_licenses')->where('serviceid', $id)->first();
+            return (new Capsule)->table('mod_tekbase_licenses')->where('serviceid', $id)->first();
         }
     }
 
     public static function FindLicenseByService($serviceid) {
-        return new License((Capsule::table('mod_tekbase_licenses')->where('serviceid', $serviceid)->first())->licenseid);
+        return new License(((new Capsule)->table('mod_tekbase_licenses')->where('serviceid', $serviceid)->first())->licenseid);
     }
 
     public static function UpdateLicense(License $license) {
-        if (Capsule::table('mod_tekbase_licenses')->where('licenseid', $license->id)->count() > 0 ){
-            return Capsule::table('mod_tekbase_licenses')->where('licenseid', $license->id)->update([
+        if ((new Capsule)->table('mod_tekbase_licenses')->where('licenseid', $license->id)->count() > 0 ){
+            return (new Capsule)->table('mod_tekbase_licenses')->where('licenseid', $license->id)->update([
 
                 'serviceid'  => $license->serviceid,
                 'customerid' => $license->customer,
@@ -110,11 +112,11 @@ class DatabaseManager {
                 'gwislots'   => $license->gwislots,
                 'rwislots'   => $license->rwislots,
                 'swislots'   => $license->swislots,
-                "updated_at" => \Carbon\Carbon::now()
+                "updated_at" => (new Carbon)->now()
 
             ]) == 1;
         } else {
-            return Capsule::table('mod_tekbase_licenses')->insert([
+            return (new Capsule)->table('mod_tekbase_licenses')->insert([
 
                 'serviceid'  => $license->serviceid,
                 'customerid' => $license->customer,
@@ -129,8 +131,8 @@ class DatabaseManager {
                 'gwislots'   => $license->gwislots,
                 'rwislots'   => $license->rwislots,
                 'swislots'   => $license->swislots,
-                "updated_at" => \Carbon\Carbon::now(),
-                "created_at" => \Carbon\Carbon::now()
+                "updated_at" => (new Carbon)->now(),
+                "created_at" => (new Carbon)->now()
 
             ]);
         }
@@ -138,23 +140,23 @@ class DatabaseManager {
 
 
     public static function FindCustomFields($serviceid){
-        return Capsule::table('tblcustomfieldsvalues')->where('tblcustomfieldsvalues.relid', $serviceid)
+        return (new Capsule)->table('tblcustomfieldsvalues')->where('tblcustomfieldsvalues.relid', $serviceid)
                            ->join('tblcustomfields', 'tblcustomfieldsvalues.fieldid', '=', 'tblcustomfields.id')
                            ->select('tblcustomfieldsvalues.id as valueID', 'tblcustomfieldsvalues.fieldid', 'tblcustomfieldsvalues.relid', 'tblcustomfields.id', 'tblcustomfields.fieldname')->get();
     }
     
     public static function UpdateCustomfield ($id, $serviceid, $value){
-        return Capsule::table('tblcustomfieldsvalues')->where('id', $id)->where('relid', $serviceid)->update([
+        return (new Capsule)->table('tblcustomfieldsvalues')->where('id', $id)->where('relid', $serviceid)->update([
             "value" => $value
         ]) == 1;
     }
 
     public static function DeleteLicense(License $license){
-        return Capsule::table('mod_tekbase_licenses')->where('licenseid', $license->id)->where('serviceid', $license->serviceid)->delete() > 0;
+        return (new Capsule)->table('mod_tekbase_licenses')->where('licenseid', $license->id)->where('serviceid', $license->serviceid)->delete() > 0;
     }
 
     public static function AlreadyExists($serviceid){
-        return Capsule::table('mod_tekbase_licenses')->where('serviceid', $serviceid)->count() > 0; 
+        return (new Capsule)->table('mod_tekbase_licenses')->where('serviceid', $serviceid)->count() > 0; 
     }
 
 

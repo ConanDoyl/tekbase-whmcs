@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 2:28:30 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Sunday, 15th August 2021 6:08:21 pm
+ * Last Modified: Tuesday, 24th August 2021 5:58:16 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -64,6 +64,7 @@ class ProductService {
             $license->sitepath = $vars['customfields']['sitepath'];
         }
 
+    
         if ($package){
             $license->gwislots  = $vars['configoptions']['Resources'];
             $license->rwislots  = $vars['configoptions']['Resources'];
@@ -75,15 +76,23 @@ class ProductService {
             $license->swislots  = $vars['configoptions']['swislots'];
             $license->vwislots  = $vars['configoptions']['vwislots'];
         }
+            
+        
 
 
         $answer = (new LicenseService)->addLicense($username, (array)$license);
+
+        if ($answer->key == null){
+            $license->key = "<b><font color='#FF000'>Not retrieved yet.</font></b><br/>To retrieve the License Key make sure you've set url and path at the settings!"; 
+            logActivity(json_encode($answer)); 
+        }
 
         //Check if Key isn't null 
 		if ($answer->key != null){
 			$license->key = $answer->key;
 			$license->id = $answer->id;
-		} else { $license->key = "<b><font color='#FF000'>Not retrieved yet.</font></b><br/>To retrieve the License Key make sure you've set url and path at the settings!"; logActivity(json_encode($answer)); }
+		}  
+        
 
         return $license->save();
 
@@ -113,12 +122,12 @@ class ProductService {
             $license->shop  = $vars['configoptions']['shop'];
 
         if ($license->siteurl != $vars['customfields']['siteurl'] || $license->sitepath != $vars['customfields']['sitepath'] || $license->siteip != $vars['customfields']['siteip'] ){
-            $ip = gethostbyname(parse_url($vars['customfields']['siteurl'], PHP_URL_HOST));
+            $ipaddr = gethostbyname(parse_url($vars['customfields']['siteurl'], PHP_URL_HOST));
             $license->pre_url   = $vars['customfields']['siteurl'];
             $license->siteurl   = $vars['customfields']['siteurl'];
             $license->pre_path  = $vars['customfields']['sitepath'];
             $license->sitepath  = $vars['customfields']['sitepath'];
-            $license->siteip    = $ip;
+            $license->siteip    = $ipaddr;
         }
         
 
@@ -151,7 +160,7 @@ class ProductService {
      * @return bool
      */
     public function suspendService($vars){
-        $license = DatabaseManager::FindLicenseByService($vars['serviceid']);
+        $license = new License($vars['serviceid']);
         $answer =(new LicenseService)->suspendLicense($license);
         return $answer->message == "SUCCESSFUL";
     }
@@ -163,7 +172,7 @@ class ProductService {
      * @return bool
      */
     public function unsuspendService($vars){
-        $license = DatabaseManager::FindLicenseByService($vars['serviceid']);
+        $license = new License($vars['serviceid']);
         $answer =(new LicenseService)->unsuspendLicense($license);
         return $answer->message == "SUCCESSFUL";
     }
@@ -176,11 +185,13 @@ class ProductService {
      * @return bool
      */
     public function terminateService($vars){
-        $license = DatabaseManager::FindLicenseByService($vars['serviceid']);
+        $license = new License($vars['serviceid']);
         $answer =(new LicenseService)->deleteLicense($license);
         if ($answer->message == "SUCCESSFUL"){
             return DatabaseManager::DeleteLicense($license);
-        } else { return false; }
+        } 
+         
+        return false;
     }
     
 
@@ -190,7 +201,7 @@ class ProductService {
      * @return bool
      */
     public function updateProductdetails(License $license){
-       $Customfields = DatabaseManager::FindCustomFields($license->serviceid);
+       $Customfields = (new DatabaseManager)->FindCustomFields($license->serviceid);
        foreach($Customfields as $CustomField){
            $__name  = explode( '|', $CustomField->fieldname );
            $NAME    = count($__name) > 1 ? $__name[0] :  $CustomField->fieldname;
@@ -198,11 +209,11 @@ class ProductService {
             switch($NAME){
 
                 case "siteurl": 
-                    DatabaseManager::UpdateCustomfield($CustomField->valueID, $license->serviceid, $license->siteurl);
+                    (new DatabaseManager)->UpdateCustomfield($CustomField->valueID, $license->serviceid, $license->siteurl);
                     break;
 
                 case "sitepath": 
-                    DatabaseManager::UpdateCustomfield($CustomField->valueID, $license->serviceid, $license->sitepath);
+                    (new DatabaseManager)->UpdateCustomfield($CustomField->valueID, $license->serviceid, $license->sitepath);
                     break;
 
             }
