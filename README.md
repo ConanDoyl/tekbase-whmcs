@@ -10,6 +10,7 @@
    
 ## Summary
 
+  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/615bb87a38e34365abf6208716c503a2)](https://www.codacy.com/gh/ConanDoyl/tekbase-whmcs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ConanDoyl/tekbase-whmcs&amp;utm_campaign=Badge_Grade)
   [![CodeFactor](https://www.codefactor.io/repository/github/conandoyl/tekbase-whmcs/badge)](https://www.codefactor.io/repository/github/conandoyl/tekbase-whmcs)
   
 With this module you're able to manage your customer licenses. You can add, delete, lock/unlock or upgrade a license. 
