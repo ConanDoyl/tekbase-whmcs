@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 12:11:27 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Saturday, 28th August 2021 10:26:14 am
+ * Last Modified: Thursday, 10th February 2022 6:48:14 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -31,6 +31,7 @@ class DatabaseManager {
 
     public static function Init() {
 
+        
         // Create a new table.
         try {
             if (!(new Capsule)->schema()->hasTable('mod_tekbase_licenses'))
@@ -41,10 +42,10 @@ class DatabaseManager {
                         $table->integer('serviceid');
                         $table->string('customerid');
                         $table->integer('licenseid');
-                        $table->text('licensekey');
-                        $table->string('siteip');
-                        $table->string('siteurl');
-                        $table->string('sitepath');
+                        $table->text('licensekey')->nullable();
+                        $table->string('siteip')->nullable();
+                        $table->string('siteurl')->nullable();
+                        $table->string('sitepath')->nullable();
                         $table->string('version');
                         $table->boolean('cms');
                         $table->boolean('shop');
