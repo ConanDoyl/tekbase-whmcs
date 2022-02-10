@@ -6,7 +6,7 @@
  * File Created: Saturday, 14th August 2021 12:00:08 pm
  * Author: Thomas Brinkmann (doyl@dsh.icu)
  * -----
- * Last Modified: Tuesday, 24th August 2021 5:24:39 pm
+ * Last Modified: Thursday, 10th February 2022 7:20:33 pm
  * Modified By: Thomas Brinkmann (doyl@dsh.icu>)
  * -----
  * Copyright 2021 - Thomas Brinkmann. All Rights Reserved.
@@ -128,46 +128,9 @@ class ApiManager {
         $response = curl_exec($curl);
         $data = json_decode($response);
 
-        
 
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        // Check the HTTP Status code
-        switch ($httpCode) {
-            case 200:
-                $error_status = ["StatusCode" => "200",  "Message" => "Success"];
-                return ($data);
-                break;
-            case 201:
-                $error_status = ["StatusCode" => "201",  "Message" => "Created"];
-                return ($data);
-                break;
-            case 204:
-                $error_status = ["StatusCode" => "204",  "Message" => "No Centent, Success"];
-                break;
-            case 400:
-                $error_status = ["StatusCode" => "400",  "Message" => "Bad Request invalid json."];
-                break;
-            case 425:
-                $error_status = ["StatusCode" => "422",  "Message" => "Unprocessable Entity"];
-                break;
-            case 404:
-                $error_status = ["StatusCode" => "404",  "Message" => "API/Endpoint not found"];
-                break;
-            case 500:
-                $error_status = ["StatusCode" => "500",  "Message" => "Server replied with an error."];
-                break;
-            case 502:
-                $error_status = ["StatusCode" => "502",  "Message" => "servers may be down or being upgraded. Hopefully they'll be OK soon!"];
-                break;
-            case 503:
-                $error_status = ["StatusCode" => "503",  "Message" => "service unavailable. Hopefully they'll be OK soon!"];
-                break;
-            default:
-                $error_status = ["StatusCode" => $httpCode, "Message" => "Undocumented error: " . $httpCode . " : " . curl_error($curl), "response" => json_encode($response)];
-                break;
-        }
         curl_close($curl);
-        return $error_status;
+        return $data;
     }
 
 
